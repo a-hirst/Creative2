@@ -3,15 +3,27 @@
   <head>
     <title>Trip Planner</title>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#directionsButton").click(function(e) {
+          var start = $("#startField").val();
+          var end = $("#endField").val();
+          e.preventDefault();
+          var startStr = encodeURIComponent(start)
+          var endStr = encodeURIComponent(end);
+          $("#directionMap").attr("src", "https://www.google.com/maps/embed/v1/directions?origin="+startStr+"&destination="+endStr+"&key=AIzaSyDfkp9AI3-fOnspxkHA3XFCUgoLk_5Nnfs");
+        });
+      });
+    </script>
   </head>
   <body>
     <h1>Creative Project 2</h1>
     <form>
-      Starting Location: <input type="text" id="start" value=""><br>
-      Destination: <input type="text" id="end" value=""><br>
+      Starting Location: <input type="text" id="startField" value=""><br>
+      Destination: <input type="text" id="endField" value=""><br>
       <input id="directionsButton" type="submit" value="Submit">
     </form>
-    <iframe width="600" height="450" frameborder="0" style="border:0" 
+    <iframe width="600" height="450" frameborder="0" style="border:0" id="directionMap"
             src="https://www.google.com/maps/embed/v1/directions?origin=Spanish%20Fork&destination=New%20York&key=AIzaSyDfkp9AI3-fOnspxkHA3XFCUgoLk_5Nnfs" 
             allowfullscreen></iframe>
   </body>
