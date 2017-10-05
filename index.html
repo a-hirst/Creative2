@@ -1,10 +1,16 @@
 <!doctype html>
 <html ng-app="myApp">
   <head>
-    <title>JQuery Creative Project</title>
+    <title>Trip Planner</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   </head>
   <body>
     <h1>Creative Project 2</h1>
+    <form>
+      Starting Location: <input type="text" id="start" value=""><br>
+      Destination: <input type="text" id="end" value=""><br>
+      <input id="directionsButton" type="submit" value="Submit">
+    </form>
     <iframe width="600" height="450" frameborder="0" style="border:0" 
             src="https://www.google.com/maps/embed/v1/directions?origin=Spanish%20Fork&destination=New%20York&key=AIzaSyDfkp9AI3-fOnspxkHA3XFCUgoLk_5Nnfs" 
             allowfullscreen></iframe>
