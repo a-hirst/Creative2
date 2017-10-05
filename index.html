@@ -21,12 +21,12 @@
           directionsURL += "&key=AIzaSyCQeWcc9-LdzhLaZk6zDI_t11-_VX63AKQ";
           console.log("directionsURL", directionsURL);
           
-          directionsURL = "https://maps.googleapis.com/maps/api/geocode/jsonp?address=rigby&key=AIzaSyCQeWcc9-LdzhLaZk6zDI_t11-_VX63AKQ";
+          directionsURL = "https://maps.googleapis.com/maps/api/geocode/json?address=rigby&key=AIzaSyCQeWcc9-LdzhLaZk6zDI_t11-_VX63AKQ";
           
           $.ajax({
             url: directionsURL,
             type: "GET",
-            dataType: "jsonp",
+            dataType: "json",
             success: function(data) {
               console.log(data);
               // $("#directions").html = "<div>" + JSON.stringify(data) + "</div>";
