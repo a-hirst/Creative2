@@ -26,8 +26,9 @@
             crossDomain: true,
             dataType: "jsonp",
             success: function(data) {
+              console.log(data);
               // $("#directions").html = "<div>" + JSON.stringify(data) + "</div>";
-              console.log("directions data", JSON.stringify(data));
+              // console.log("directions data", JSON.stringify(data));
             }
           });
         });
