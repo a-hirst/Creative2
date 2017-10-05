@@ -27,7 +27,7 @@
             dataType: "jsonp",
             success: function(data) {
               $("#directions").html = data;
-              console.log("directions data", data);
+              console.log("directions data", JSON.stringify(data));
             }
           });
         });
