@@ -29,7 +29,7 @@
             dataType: "json",
             success: function(data) {
               console.log(data);
-              var coordinates = JSON.stringify(data["results"][0]);
+              var coordinates = JSON.stringify(data["results"][0]["geography"]["location"]);
               console.log('coordinate', coordinates);
               // $("#directions").html = "<div>" + JSON.stringify(data) + "</div>";
               // console.log("directions data", JSON.stringify(data));
