@@ -24,7 +24,8 @@
           $.ajax({
             url: directionsURL,
             crossDomain: true,
-            dataType: "jsonp",
+            dataType: "json",
+            jsonp: false,
             success: function(data) {
               console.log(data);
               // $("#directions").html = "<div>" + JSON.stringify(data) + "</div>";
