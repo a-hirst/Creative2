@@ -12,6 +12,19 @@
           var startStr = encodeURIComponent(start)
           var endStr = encodeURIComponent(end);
           $("#directionMap").attr("src", "https://www.google.com/maps/embed/v1/directions?origin="+startStr+"&destination="+endStr+"&key=AIzaSyDfkp9AI3-fOnspxkHA3XFCUgoLk_5Nnfs");
+        
+          // get directions
+          var directionsURL = "https://maps.googleapis.com/maps/api/directions/json?origin="
+          directionsURL += startStr;
+          directionsURL += "&destination=";
+          directionsURL += endStr;
+          directionsURL += "&key=AIzaSyDfkp9AI3-fOnspxkHA3XFCUgoLk_5Nnfs";
+          console.log("directionsURL", directionsURL);
+          
+          $.getJSON(directionsURL, function(data) {
+            $("#directions").html = data;
+            console.log("directions data", data);
+          }):
         });
       });
     </script>
@@ -23,8 +36,12 @@
       Destination: <input type="text" id="endField" value=""><br>
       <input id="directionsButton" type="submit" value="Submit">
     </form>
-    <iframe width="600" height="450" frameborder="0" style="border:0" id="directionMap"
-            src="https://www.google.com/maps/embed/v1/directions?origin=Spanish%20Fork&destination=New%20York&key=AIzaSyDfkp9AI3-fOnspxkHA3XFCUgoLk_5Nnfs" 
-            allowfullscreen></iframe>
+    <div>
+      <div style="float: left; width: 500px" id="directions">
+      </div>
+      <iframe width="600" height="450" frameborder="0" style="border:0" id="directionMap"
+              src="https://www.google.com/maps/embed/v1/directions?origin=Spanish%20Fork&destination=New%20York&key=AIzaSyDfkp9AI3-fOnspxkHA3XFCUgoLk_5Nnfs" 
+              allowfullscreen></iframe>
+    </div>
   </body>
 </html>
