@@ -29,8 +29,11 @@
             dataType: "json",
             success: function(data) {
               console.log(data);
-              var coordinates = JSON.stringify(data["results"][0]["geography"]["location"]);
+              var coordinates = JSON.stringify(data["results"][0]["geometry"]["location"]);
+              var lat = JSON.stringify(data["results"][0]["geometry"]["location"]["lat"]);
+              var lng = JSON.stringify(data["results"][0]["geometry"]["location"]["lng"]);
               console.log('coordinate', coordinates);
+              $("#directions").html = coordinates;
               // $("#directions").html = "<div>" + JSON.stringify(data) + "</div>";
               // console.log("directions data", JSON.stringify(data));
             },
