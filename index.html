@@ -33,7 +33,7 @@
               var lat = JSON.stringify(data["results"][0]["geometry"]["location"]["lat"]);
               var lng = JSON.stringify(data["results"][0]["geometry"]["location"]["lng"]);
               console.log('coordinate', coordinates);
-              $("#directions").html = coordinates;
+              $("#directions").html = "<div>" + coordinates + "</div>";
               // $("#directions").html = "<div>" + JSON.stringify(data) + "</div>";
               // console.log("directions data", JSON.stringify(data));
             },
@@ -56,8 +56,8 @@
     <div>
       <div style="float: left; width: 500px" id="directions">
       </div>
-      <iframe width="600" height="450" frameborder="0" style="border:0" id="directionMap"
-              src="https://www.google.com/maps/embed/v1/directions?origin=Spanish%20Fork&destination=New%20York&key=AIzaSyDfkp9AI3-fOnspxkHA3XFCUgoLk_5Nnfs" 
+      <iframe width="600" height="450" frameborder="0" style="border:0; float: right" id="directionMap"
+              src="" 
               allowfullscreen></iframe>
     </div>
   </body>
