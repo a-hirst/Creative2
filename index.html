@@ -43,6 +43,7 @@
               var lng = data["results"][0]["geometry"]["location"]["lng"];
               console.log('coordinates 2', lat, lng);
               $("#directions").val = "<div>" + lng + "</div>";
+              console.log($("#directions"));
               // $("#directions").html = "<div>" + JSON.stringify(data) + "</div>";
               // console.log("directions data", JSON.stringify(data));
             }
@@ -53,18 +54,21 @@
     </script>
   </head>
   <body>
-    <h1>Creative Project 2</h1>
+    <h1>Geological Locator</h1>
     <form>
-      Starting Location: <input type="text" id="startField" value=""><br>
+      Starting Location: <input type="text" id="startField" value=""><br><br>
       Destination: <input type="text" id="endField" value=""><br>
       <input id="directionsButton" type="submit" value="Submit">
+      <br><br>
     </form>
     <div>
-      <div style="float: left; width: 500px" id="directions">
+      <div id="directions">
       </div>
-      <iframe width="600" height="450" frameborder="0" style="border:0; float: right" id="directionMap"
+      <h2>Travel Distance Between Points</h2>
+      <h3>(shown in a handy map format!)</h3>
+      <iframe width="600" height="450" frameborder="0" style="border:0" id="directionMap"
               src="" 
-              allowfullscreen></iframe>
+              allowfullscreen>No Locations Selected</iframe>
     </div>
   </body>
 </html>
