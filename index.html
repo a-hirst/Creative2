@@ -36,7 +36,7 @@
               $.ajax({
                 url: altURL,
                 type: "GET",
-                dataType: "json",
+                dataType: "jsonp",
                 success: function(altData) {
                  var elevation = altData["results"][0]["elevation"];
                   alert(elevation);
