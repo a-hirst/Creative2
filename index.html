@@ -12,34 +12,53 @@
           var startStr = encodeURIComponent(start)
           var endStr = encodeURIComponent(end);
           $("#directionMap").attr("src", "https://www.google.com/maps/embed/v1/directions?origin="+startStr+"&destination="+endStr+"&key=AIzaSyDfkp9AI3-fOnspxkHA3XFCUgoLk_5Nnfs");
-        
-          // get directions
-          var directionsURL = "https://maps.googleapis.com/maps/api/directions/json?origin="
-          directionsURL += startStr;
-          directionsURL += "&destination=";
-          directionsURL += endStr;
-          directionsURL += "&key=AIzaSyCQeWcc9-LdzhLaZk6zDI_t11-_VX63AKQ";
-          console.log("directionsURL", directionsURL);
           
-          directionsURL = "https://maps.googleapis.com/maps/api/geocode/json?address=rigby&key=AIzaSyCQeWcc9-LdzhLaZk6zDI_t11-_VX63AKQ";
+          var startPosURL = "https://maps.googleapis.com/maps/api/geocode/json?address="+startStr+"&key=AIzaSyCQeWcc9-LdzhLaZk6zDI_t11-_VX63AKQ";
+          var endPosURL = "https://maps.googleapis.com/maps/api/geocode/json?address="+endStr+"&key=AIzaSyCQeWcc9-LdzhLaZk6zDI_t11-_VX63AKQ";
           
           $.ajax({
-            url: directionsURL,
+            url: startPosURL,
             type: "GET",
             dataType: "json",
             success: function(data) {
-              console.log(data);
               var coordinates = data["results"][0]["geometry"]["location"];
               var lat = data["results"][0]["geometry"]["location"]["lat"];
               var lng = data["results"][0]["geometry"]["location"]["lng"];
-              console.log('coordinate', coordinates);
-              console.log('coordinates 2', lat, lng);
-              $("#directions").html = "<div>" + coordinates + "</div>";
+              console.log('coordinates 1', lat, lng);
+              $("#directions").val = "<div>" + lat + "</div>";
+              
+              //get altitiude
+              var altURL = "https://maps.googleapis.com/maps/api/elevation/json?locations=";
+              altURL += lat;
+              altURL += ",";
+              altURL += lng;
+              altURL += "&key=AIzaSyCQeWcc9-LdzhLaZk6zDI_t11-_VX63AKQ";
+              $.ajax({
+                url: altURL,
+                type: "GET",
+                dataType: "json",
+                success: function(altData) {
+                 var elevation = altData["results"][0]["elevation"];
+                  alert(elevation);
+                }
+              });
+              
               // $("#directions").html = "<div>" + JSON.stringify(data) + "</div>";
               // console.log("directions data", JSON.stringify(data));
-            },
-            failure: function(stuff) {
-             console.log('failure', stuff); 
+            }
+          });
+          
+          $.ajax({
+            url: endPosURL,
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+              var lat = data["results"][0]["geometry"]["location"]["lat"];
+              var lng = data["results"][0]["geometry"]["location"]["lng"];
+              console.log('coordinates 2', lat, lng);
+              $("#directions").val = "<div>" + lng + "</div>";
+              // $("#directions").html = "<div>" + JSON.stringify(data) + "</div>";
+              // console.log("directions data", JSON.stringify(data));
             }
           });
          // $.getJSON(directionsUrl,
