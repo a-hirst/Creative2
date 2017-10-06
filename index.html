@@ -27,21 +27,7 @@
               console.log('coordinates 1', lat, lng);
               $("#directions").val = "<div>" + lat + "</div>";
               
-              //get altitiude
-              var altURL = "https://maps.googleapis.com/maps/api/elevation/json?locations=";
-              altURL += lat;
-              altURL += ",";
-              altURL += lng;
-              altURL += "&key=AIzaSyCQeWcc9-LdzhLaZk6zDI_t11-_VX63AKQ";
-              $.ajax({
-                url: altURL,
-                type: "GET",
-                dataType: "jsonp",
-                success: function(altData) {
-                 var elevation = altData["results"][0]["elevation"];
-                  alert(elevation);
-                }
-              });
+              alert(lat, lng);
               
               // $("#directions").html = "<div>" + JSON.stringify(data) + "</div>";
               // console.log("directions data", JSON.stringify(data));
