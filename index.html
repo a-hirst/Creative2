@@ -27,7 +27,7 @@
               console.log('coordinates 1', lat, lng);
               var text = "<div> Latitude of " + start + ": " + lat + "</br>Longitude of " + start + ": " + lng + "</div>";
               $("#startLocation").html(text);
-              
+              $("#startLocation").fadeIn();
               // $("#directions").html = "<div>" + JSON.stringify(data) + "</div>";
               // console.log("directions data", JSON.stringify(data));
             }
@@ -43,6 +43,7 @@
               console.log('coordinates 2', lat, lng);
               var text = "<div> Latitude of " + end + ": " + lat + "</br>Longitude of " + end + ": " + lng + "</div>";
               $("#endLocation").html(text);
+              $("#endLocation").fadeIn();
               // $("#directions").html = "<div>" + JSON.stringify(data) + "</div>";
               // console.log("directions data", JSON.stringify(data));
             }
